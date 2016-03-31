@@ -1,2 +1,2 @@
 # DenysRepo
-This repository is used for saving test data
+This repository is used for saving test data.

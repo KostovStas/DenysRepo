@@ -6,6 +6,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
+import org.junit.Assert;
 import org.unitils.reflectionassert.ReflectionAssert;
 
 import com.booking.structure.beans.HotelSearchCriteriaBean;
@@ -13,8 +14,8 @@ import com.booking.structure.beans.SearchResultItemBean;
 import com.booking.util.JbehaveUtil;
 
 import net.thucydides.core.annotations.Steps;
-import serenity.steps.HotelSearchPageSteps;
-import serenity.steps.SearchResultPageSteps;
+import jbehave.steps.HotelSearchPageSteps;
+import jbehave.steps.SearchResultPageSteps;
 
 public class BookingSearchScenario {
 
@@ -22,7 +23,7 @@ public class BookingSearchScenario {
     private HotelSearchPageSteps hotelSearchPageSteps;
 
     @Steps
-    SearchResultPageSteps searchResultPageSteps;
+    private SearchResultPageSteps searchResultPageSteps;
 
     @Given("user has opened 'Booking.com' site")
     public void userOpenedSite() {
@@ -35,10 +36,9 @@ public class BookingSearchScenario {
         hotelSearchPageSteps.fillInTravelingInfo(hotelSearchCriteria);
     }
 
-    @Then("user shuold see following found hotels: $table")
-    public void isSearchHotelsLocatedInNy(final ExamplesTable examplesTable) {
-        final List<SearchResultItemBean> searchResultItem = JbehaveUtil.populate(examplesTable, SearchResultItemBean.class);
-        ReflectionAssert.assertReflectionEquals("There are incorrect List of Hotels displayed!!!",
-                searchResultItem, searchResultPageSteps.getHotelsList());
+    @Then("user should see found hotels, located in '$location'")
+    public void isSearchHotelsLocatedIn(final String location) {
+        Assert.assertTrue("There are incorrect List of Hotels displayed!!!",
+                searchResultPageSteps.isAllHotelsLocatedIn(location));
     }
 }

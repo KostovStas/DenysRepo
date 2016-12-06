@@ -2,8 +2,7 @@ package com.booking.structure.common;
 
 public enum EnvironmentProperty {
 
-    BOOKING_SITE_STORIES,
-    SITE_BASE_URL;
+    BOOKING_STORIES;
 
     public String readProperty() {
         return PropertiesController.getProperty(getPropertyName());

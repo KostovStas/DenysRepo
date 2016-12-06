@@ -1,4 +1,4 @@
-package serenity.steps;
+package jbehave.steps;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -69,7 +69,7 @@ public class HotelSearchPageSteps extends ScenarioSteps {
         hotelsSearchPage.getSearchByCriteriaPanel()
                 .openCheckInDatePicker()
                 .getMonthTablePanel(StringUtils.trim(dateItems[0]))
-                .selectDateByValue(dateItems[1]);
+                .selectDateByValue(StringUtils.trim(dateItems[1]));
     }
 
     private void selectCheckOutDate(final String[] dateItems) {

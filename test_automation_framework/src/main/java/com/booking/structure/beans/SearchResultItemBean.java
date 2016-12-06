@@ -2,22 +2,22 @@ package com.booking.structure.beans;
 
 public class SearchResultItemBean {
 
-    private String name;
-    private String location;
+    private String hotelName;
+    private String hotelLocation;
 
-    public String getName() {
-        return name;
+    public String getHotelName() {
+        return hotelName;
     }
 
-    public void setName(final String name) {
-        this.name = name;
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 
-    public String getLocation() {
-        return location;
+    public String getHotelLocation() {
+        return hotelLocation;
     }
 
-    public void setLocation(final String location) {
-        this.location = location;
+    public void setHotelLocation(String hotelLocation) {
+        this.hotelLocation = hotelLocation;
     }
 }

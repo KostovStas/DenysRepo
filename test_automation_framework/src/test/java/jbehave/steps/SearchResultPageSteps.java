@@ -1,4 +1,4 @@
-package serenity.steps;
+package jbehave.steps;
 
 import static java.util.stream.Collectors.toList;
 
@@ -22,7 +22,12 @@ public class SearchResultPageSteps extends ScenarioSteps {
     }
 
     @Step
-    public List<SearchResultItemBean> getHotelsList() {
+    public boolean isAllHotelsLocatedIn(final String location) {
+        return getHotelsList().stream()
+                .allMatch(item -> item.getHotelLocation().contains(location));
+    }
+
+    private List<SearchResultItemBean> getHotelsList() {
         return searchResultPage.getResultsPanel().getResultItems().map(panel -> {
             final SearchResultItemBean hotel = new SearchResultItemBean();
             BeanUtil.copyProperties(hotel, panel);

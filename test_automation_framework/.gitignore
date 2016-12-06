@@ -6,4 +6,4 @@ target/
 .settings
 *.log
 .idea
-Desktop.iml
+test-automation-framework.iml

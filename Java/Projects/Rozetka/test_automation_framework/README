@@ -1,0 +1,10 @@
+==================
+ABOUT THIS PROJECT
+==================
+
+This is test automation framework
+
+For running tests, using maven, please perform following steps:
+
+1. Run maven command: mvn clean verify -U -Drozetka.stories=CreateNewAccount.story -Denv.config.file=common.properties serenity:aggregate
+2. After test has finished working, you can find the 'Serenity' report by ../target/site/index.html

@@ -1,9 +1,0 @@
-target
-reports
-target/
-.project
-.classpath
-.settings
-*.log
-.idea
-test-automation-framework.iml
